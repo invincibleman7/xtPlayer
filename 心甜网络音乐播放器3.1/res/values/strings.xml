@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">mp3Player</string>
+    <string name="action_settings">Settings</string>
+    <string name="confirm">确定</string>
+    <string name="cancle">取消</string>
+    <string name="downloading">下载中...</string>
+    <string name="waitting">请稍后...</string>
+
+</resources>

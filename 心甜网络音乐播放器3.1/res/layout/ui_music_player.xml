@@ -1,0 +1,172 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mp3player.UiMp3Player" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:background="#222222"
+        android:orientation="vertical"
+        android:padding="5dip" >
+		
+		<LinearLayout
+		    android:id="@+id/musicListName" 
+		    android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+		    android:background="@drawable/text_bottom"
+		    android:layout_weight="1"
+		    android:minHeight="50dip"
+		    android:gravity="center_vertical|right"
+		    android:orientation="horizontal"
+		    >
+			<Button 
+			    android:id="@+id/addList"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:text="添加列表"
+			    android:gravity="center"
+			    android:minHeight="40dip"
+			    android:minWidth="100dip"
+			    android:layout_marginRight="10dip"
+			    android:background="@drawable/btn_add_list"
+			    />
+		</LinearLayout>
+
+        <ExpandableListView
+            android:id="@+id/mp3List"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="200" 
+            android:background="@drawable/child_list_text_bottom"
+            />
+
+        <TextView
+            android:id="@+id/musicPlayName"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/text_bottom"
+            android:gravity="center"
+            android:minHeight="40dip"
+            android:text="music"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dip"
+            android:layout_marginTop="20dip"
+            android:layout_weight="1" >
+
+            <TextView
+                android:id="@+id/startTime"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@drawable/text_bottom"
+                android:gravity="center"
+                android:text="00:00"
+                android:layout_gravity="center_vertical"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <SeekBar
+                android:id="@+id/sb"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dip"
+                android:layout_marginRight="3dip"
+                android:layout_weight="1"
+                android:paddingLeft="5dip"
+                android:paddingRight="5dip"
+                android:progressDrawable="@drawable/seekbar_style"
+                />
+
+            <TextView
+                android:id="@+id/endTime"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/text_bottom"
+                android:gravity="center"
+                android:text="00:00"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal" >
+
+            <Button
+                android:id="@+id/prevBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dip"
+                android:background="@drawable/btn_rew" />
+
+            <Button
+                android:id="@+id/stopBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dip"
+                android:background="@drawable/btn_stop" />
+
+            <Button
+                android:id="@+id/startBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dip"
+                android:background="@drawable/btn_play" />
+
+            <Button
+                android:id="@+id/nextBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dip"
+                android:background="@drawable/btn_ff" />
+        </TableRow>
+    </LinearLayout>
+
+    <SlidingDrawer
+        android:id="@+id/drawer"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:content="@+id/content"
+        android:handle="@+id/handle"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@id/handle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+            <Button
+                android:id="@+id/imageBtn"
+                android:layout_width="40dip"
+                android:layout_height="40dip"
+                android:background="@drawable/back"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@id/content"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <TextSwitcher
+                android:id="@+id/textSch"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:visibility="invisible" />
+        </LinearLayout>
+    </SlidingDrawer>
+
+</RelativeLayout>

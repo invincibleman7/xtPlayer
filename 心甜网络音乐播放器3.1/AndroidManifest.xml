@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tian"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:name=".app.App"
+        android:allowBackup="true"
+        android:icon="@drawable/launcher"
+        android:label="心甜" >
+        <activity
+            android:name=".mp3player.UiDownloadList"
+            android:label="供下载文件"
+            >
+        </activity>
+        <activity
+            android:name=".mp3player.UiDownload"
+            android:configChanges="orientation|keyboard"
+            android:label="下载操作"
+            android:screenOrientation="sensor" />
+        <activity
+            android:name=".mp3player.UiMusicPlayer"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.tian.mp3player.MusicService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.tian.mp3Player.play" />
+                <action android:name="com.tian.mp3Player.stop" />
+                <action android:name="com.tian.mp3Player.pause" />
+                <action android:name="com.tian.mp3Player.stopService" />
+                <action android:name="com.tian.mp3Player.seekTo" />
+                <action android:name="com.tian.mp3Player.stopBroadCast" />
+                <action android:name="com.tian.mp3Player.startBroadCast" />
+            </intent-filter>
+        </service>
+        
+        <service
+            android:name="com.tian.mp3player.DownloadService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.tian.mp3player.DownloadService.start" />
+                <action android:name="com.tian.mp3player.DownloadService.pause" />
+                <action android:name="com.tian.mp3player.DownloadService.stop" />
+            </intent-filter>
+        </service>
+
+        <receiver android:name="com.tian.mp3player.MusicReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+                <action android:name="android.media.AUDIO_BECOMING_NOISY" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
